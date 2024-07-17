@@ -1,0 +1,34 @@
+{
+  "name": "YouTube Speed Controller",
+  "version": "1.0.0",
+  "description": "Adjust YouTube video playback speed with a custom speed controller.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/speed-icon.png"
+      ],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/speed-icon.png",
+      "24": "assets/speed-icon.png",
+      "32": "assets/speed-icon.png"
+    },
+    "default_title": "YouTube Speed Controller",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
